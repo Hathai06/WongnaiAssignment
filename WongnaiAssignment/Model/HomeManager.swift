@@ -24,10 +24,9 @@ struct HomeManager {
                 }
                 
                 if let safeData = data {
-                    self.parseJson(data: safeData, completion: completion )
+                    self.parseJson(data: safeData, completion: completion)
                 }
             }
-            
             task.resume()
         }
     }

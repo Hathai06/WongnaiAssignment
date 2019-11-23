@@ -14,16 +14,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private var homeManager = HomeManager()
     private var photosThisView = [Photos]()
+    private var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
         requestData()
+        configureRefreshControl()
+    }
+    
+    private func configureRefreshControl() {
         
         tableView.register(UINib(nibName: "HomeViewCell", bundle: nil), forCellReuseIdentifier: "HomeViewCell")
+        
+        refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
+    
     @objc
     private func requestData() {
         
@@ -35,10 +44,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let data = data {
                 
                 weakSelf.photosThisView = data.photos
-//                debugPrint(weakSelf.photosThisView)
                 
                 DispatchQueue.main.async {
                     weakSelf.tableView.reloadData()
+                    weakSelf.refreshControl.endRefreshing()
                 }
                 
             } else {
@@ -67,6 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
 }
+
 extension Int {
     func withCommas() -> String {
         let numberFormatter = NumberFormatter()

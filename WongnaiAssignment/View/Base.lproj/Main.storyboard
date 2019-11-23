@@ -11,21 +11,26 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WongnaiAssignment" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="p1e-He-UhZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UNM-DL-2zb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="774"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="des-xJ-x4J">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="vr2-NB-meA" firstAttribute="trailing" secondItem="des-xJ-x4J" secondAttribute="trailing" id="3nC-0e-RhW"/>
+                            <constraint firstItem="des-xJ-x4J" firstAttribute="leading" secondItem="vr2-NB-meA" secondAttribute="leading" id="Xe9-4c-dQF"/>
+                            <constraint firstItem="vr2-NB-meA" firstAttribute="bottom" secondItem="des-xJ-x4J" secondAttribute="bottom" id="ezP-Fj-dIy"/>
+                            <constraint firstItem="des-xJ-x4J" firstAttribute="top" secondItem="vr2-NB-meA" secondAttribute="top" id="xLw-nc-1F5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vr2-NB-meA"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="UNM-DL-2zb" id="snX-ma-OWN"/>
+                        <outlet property="tableView" destination="des-xJ-x4J" id="wet-jZ-S6I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

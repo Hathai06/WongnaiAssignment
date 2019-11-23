@@ -40,7 +40,6 @@ extension UIImageView {
                     self.image = UIImage(data: data)
                 }
             }
-            
             task.resume()
         }
     }
