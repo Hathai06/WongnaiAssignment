@@ -9,11 +9,12 @@
 import Foundation
 struct HomeManager {
     
-    let homeUrl = "https://api.500px.com/v1/photos?feature=popular&page=1"
+    var homeUrl = "https://api.500px.com/v1/photos?feature=popular&page="
     
-    func performRequest(page: String = "1",completion: @escaping(HomeData?, Error?)->()) {
+    func performRequest(page: String = "1",completion: @escaping (HomeData?, Error?)->()) {
         
-        if let url = URL(string: homeUrl) {
+        if let url = URL(string: (homeUrl + page)) {
+            
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, response, error)
                 in
